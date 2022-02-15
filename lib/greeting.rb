@@ -5,4 +5,8 @@ class Greeting
     puts 'Hello! What is your name?'
     @user_name = gets.chomp
   end
+
+  def say_hello
+    puts 'Hello, my friend!'
+  end
 end
