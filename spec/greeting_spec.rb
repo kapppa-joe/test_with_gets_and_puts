@@ -32,3 +32,11 @@ describe 'Greeting#ask_for_user_name' do
     end
   end
 end
+
+describe 'Greeting#greet_user' do
+  it 'when username is empty, greet user with "Hello, my friend!"' do
+    greeting = Greeting.new
+    expected_msg = 'Hello, my friend!'
+    expect { greeting.greet_user }.to output(expected_msg).to_stdout
+  end
+end
