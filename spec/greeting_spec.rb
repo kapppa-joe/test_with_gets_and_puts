@@ -5,8 +5,8 @@ describe 'Greeting#ask_for_user_name' do
     # make a new instance for each test
     @greeting = Greeting.new
 
-    # let rspec auto give an empty string when `gets` is called,
-    # so that the tests won't wait for user input and get stuck
+    # let rspec to fill in an empty string when `gets` is called,
+    # so that some of the tests won't wait for user input and get stuck
     allow(@greeting).to receive(:gets).and_return('')
   end
 
@@ -63,5 +63,20 @@ describe 'Greeting#say_hello' do
 
       expect { greeting.say_hello }.to output(expected_msg).to_stdout
     end
+  end
+end
+
+describe 'Greeting#ask_name_and_greet_user' do
+  it "ask for user's name, and then greet user by their name" do
+    greeting = Greeting.new
+
+    test_name = 'SPPAAIDAAAMAAAN'
+    expect(greeting).to receive(:gets).and_return(test_name)
+
+    expected_msg =
+      "Hello! What is your name?\nHello, SPPAAIDAAAMAAAN!!!"
+
+    expect { greeting.ask_name_and_greet_user }
+      .to output(expected_msg).to_stdout
   end
 end
