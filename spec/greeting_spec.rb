@@ -21,12 +21,14 @@ describe 'Greeting#ask_for_user_name' do
     @greeting.ask_for_user_name
   end
 
-  it 'save the user input in @user_name' do
-    test_name = 'Peter Parker'
+  test_names = ['Peter Parker', 'Eater Barker', 'Berry Porter']
 
-    allow(@greeting).to receive(:gets).and_return(test_name)
+  test_names.each do |name|
+    it 'save the user input in @user_name' do
+      allow(@greeting).to receive(:gets).and_return(name)
 
-    @greeting.ask_for_user_name
-    expect(@greeting.user_name).to eql test_name
+      @greeting.ask_for_user_name
+      expect(@greeting.user_name).to eql name
+    end
   end
 end
