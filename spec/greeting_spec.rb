@@ -10,8 +10,8 @@ describe 'Greeting#ask_for_user_name' do
     allow(@greeting).to receive(:gets).and_return('')
   end
 
-  it "prints 'Hello! What is your name? to the console'" do
-    expected_msg = a_string_starting_with('Hello! What is your name?')
+  it "prints 'Welcome! What is your name? to the console'" do
+    expected_msg = a_string_starting_with('Welcome! What is your name?')
     expect { @greeting.ask_for_user_name }.to output(expected_msg).to_stdout
   end
 
@@ -72,7 +72,7 @@ describe 'Greeting#ask_name_and_greet_user' do
 
     test_name = 'SPPAAIDAAAMAAAN'
     expected_msg =
-      "Hello! What is your name?\nHello, SPPAAIDAAAMAAAN!\n"
+      "Welcome! What is your name?\nHello, SPPAAIDAAAMAAAN!\n"
 
     # this line tests for getting user input
     expect(greeting).to receive(:gets).and_return(test_name)
