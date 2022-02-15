@@ -34,8 +34,18 @@ describe 'Greeting#ask_for_user_name' do
 end
 
 describe 'Greeting#say_hello' do
-  it 'when username is empty, greet user with "Hello, my friend!"' do
+  it 'when user_name is nil, greet user with "Hello, my friend!"' do
     greeting = Greeting.new
+    expect(greeting.user_name).to be nil
+
+    expected_msg = "Hello, my friend!\n"
+    expect { greeting.say_hello }.to output(expected_msg).to_stdout
+  end
+
+  it 'when user_name is empty, greet user with "Hello, my friend!"' do
+    greeting = Greeting.new
+    greeting.user_name = ''
+
     expected_msg = "Hello, my friend!\n"
     expect { greeting.say_hello }.to output(expected_msg).to_stdout
   end
