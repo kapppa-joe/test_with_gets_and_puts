@@ -10,7 +10,7 @@ class Greeting
     if @user_name.nil? || @user_name.empty?
       puts 'Hello, my friend!'
     else
-      puts 'Hello, Hairy Dotter!'
+      puts "Hello, #{@user_name}!"
     end
   end
 end
