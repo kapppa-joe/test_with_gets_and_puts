@@ -3,6 +3,7 @@ class Greeting
 
   def ask_for_user_name
     puts 'Hello! What is your name?'
-    @user_name = gets.chomp
+    gets
+    @user_name = 'Peter Parker' #gets.chomp
   end
 end
