@@ -40,11 +40,18 @@ describe 'Greeting#say_hello' do
     expect { greeting.say_hello }.to output(expected_msg).to_stdout
   end
 
-  it 'when username is not empty, greet user with their name' do
-    greeting = Greeting.new
-    greeting.user_name = 'Hairy Dotter'
+  test_names = ['Peter Parker', 'Berry Porter', 'Hairy Doctor']
 
-    expected_msg = "Hello, Hairy Dotter!\n"
-    expect { greeting.say_hello }.to output(expected_msg).to_stdout
+  test_names.each do |name|
+    it 'when username is not empty, greet user with their name' do
+      greeting = Greeting.new
+      greeting.user_name = name
+
+      # this #{name} will automatically fill `name` into `expected_msg`
+      # e.g. "Hello, Hairy Doctor!"
+      expected_msg = "Hello, #{name}!\n"
+
+      expect { greeting.say_hello }.to output(expected_msg).to_stdout
+    end
   end
 end
