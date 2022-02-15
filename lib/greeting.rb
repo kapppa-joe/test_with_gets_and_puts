@@ -1,5 +1,5 @@
 class Greeting
-  attr_reader :user_name # add this line to allow rspec to read @user_name
+  attr_accessor :user_name # add this line to allow rspec to access @user_name
 
   def ask_for_user_name
     puts 'Hello! What is your name?'
@@ -7,6 +7,10 @@ class Greeting
   end
 
   def say_hello
-    puts 'Hello, my friend!'
+    if @user_name.nil? || @user_name.empty?
+      puts 'Hello, my friend!'
+    else
+      puts 'Hello, Hairy Dotter!'
+    end
   end
 end
