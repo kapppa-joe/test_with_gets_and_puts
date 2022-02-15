@@ -22,4 +22,14 @@ describe 'Greeting#ask_for_user_name' do
 
     greeting.ask_for_user_name
   end
+
+  it 'save the user input in @user_name' do
+    greeting = Greeting.new
+    test_name = 'Peter Parker'
+
+    allow(greeting).to receive(:gets).and_return(test_name)
+
+    greeting.ask_for_user_name
+    expect(greeting.user_name).to eql test_name
+  end
 end
