@@ -71,11 +71,13 @@ describe 'Greeting#ask_name_and_greet_user' do
     greeting = Greeting.new
 
     test_name = 'SPPAAIDAAAMAAAN'
+    expected_msg =
+      "Hello! What is your name?\nHello, SPPAAIDAAAMAAAN!\n"
+
+    # this line tests for getting user input
     expect(greeting).to receive(:gets).and_return(test_name)
 
-    expected_msg =
-      "Hello! What is your name?\nHello, SPPAAIDAAAMAAAN!!!"
-
+    # this line tests for printing out a msg with user name
     expect { greeting.ask_name_and_greet_user }
       .to output(expected_msg).to_stdout
   end

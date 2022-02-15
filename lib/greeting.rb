@@ -1,6 +1,11 @@
 class Greeting
   attr_accessor :user_name # add this line to allow rspec to access @user_name
 
+  def ask_name_and_greet_user
+    ask_for_user_name
+    say_hello
+  end
+
   def ask_for_user_name
     puts 'Hello! What is your name?'
     @user_name = gets.chomp
