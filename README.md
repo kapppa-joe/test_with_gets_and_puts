@@ -56,9 +56,9 @@ expect { greeting.say_hello }.to output(expected_msg).to_stdout
 ## Environment
 The code in this repo was confirmed to run as expected on a machine with below config:
 
-MacOS ver 12.1
-ruby ver 2.6.9 (installed via rbenv)
-bundler ver 2.3.6
+* MacOS ver 12.1
+* ruby ver 2.6.9 (installed via rbenv)
+* bundler ver 2.3.6
 
 
 ## Reference
