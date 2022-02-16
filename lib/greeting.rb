@@ -23,3 +23,8 @@ class Greeting
     end
   end
 end
+
+if __FILE__ == $PROGRAM_NAME
+  # this only got called when running this file with `ruby greeting.rb`
+  Greeting.new.ask_name_and_greet_user
+end
